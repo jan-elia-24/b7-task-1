@@ -18,11 +18,15 @@ Teststrategi:
 describe('wordleAlgoritm()', () => {
     it('empty string gives empty reaction', () => {
         const output = wordleAlgoritm('');
-        expect(output).toEqual('');
+        expect(output).toEqual([]);
     });
 
-    it('Test when all letters are correct', () => {
-        const output = wordleAlgoritm('hello');
-        expect(output).toEqual('hello');
+    it('should return all letters as correct when guess matches secret', () => {
+        const output = wordleAlgoritm('HEJ', 'HEJ');
+        expect(output).toEqual([
+            { letter: 'H', result: 'correct' },
+            { letter: 'E', result: 'correct' },
+            { letter: 'J', result: 'correct' }
+        ]);
     })
 });
