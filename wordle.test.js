@@ -10,9 +10,6 @@ Teststrategi:
 2. Testa när alla bokstäver är korrekta.
 3. Testa när alla bokstäver är inkorrekta.
 4. Testa när några bokstäver är misplaced.
-
-
-
 */
 
 describe('wordleAlgoritm()', () => {
@@ -29,4 +26,25 @@ describe('wordleAlgoritm()', () => {
             { letter: 'J', result: 'correct' }
         ]);
     })
+
+    it('should return the wrong letters as incorrect', () => {
+        const output = wordleAlgoritm('HEJ', 'NEJ');
+        expect(output).toEqual([
+            { letter: 'H', result: 'incorrect' },
+            { letter: 'E', result: 'correct' },
+            { letter: 'J', result: 'correct' }
+        ]);
+    })
+
+    it('should handle a mix of correct, misplaced, and incorrect letters', () =>{
+        const output = wordleAlgoritm('CRANE', 'REACT');
+        expect(output).toEqual([
+            { letter: 'C', result: 'misplaced' },
+            { letter: 'R', result: 'misplaced' },
+            { letter: 'A', result: 'correct' },
+            { letter: 'N', result: 'incorrect' },
+            { letter: 'E', result: 'misplaced' }
+          ])
+    })
+
 });
