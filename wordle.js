@@ -16,6 +16,7 @@ export default function wordleAlgoritm(guess, secret) {
         }
     }
 
+    //check for the misplaced letters
     for (let i = 0; i < guess.length; i++) {
         if (result[i].result === 'incorrect') {
             const index = remainingLetters.indexOf(guess[i]);
